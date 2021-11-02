@@ -1,8 +1,9 @@
 :root {
-  --text-color: #34344A;
-  --link-color: #576490;
-  --link-hover: #98AFFF;
-  --background-color: #F3E8EE; /* Lavender Blush */
+  --text-color: #444444;
+  --link-color: #52735D;
+  --link-hover: #81B592;
+  /* --background-color: #F3E8EE; /1* Lavender Blush *1/ */
+  --background-color: #FFF3F9;
   --font-size: 16px;
   --font-family: "Helvetica", sans-serif;
   --header-split-left: 25%;
