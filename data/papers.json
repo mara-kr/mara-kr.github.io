@@ -1,0 +1,27 @@
+{
+	"papers": [
+		{
+			"title": "The House of Computing: Integrating Counternarratives into Computer Systems Education",
+			"author": "Mara Kirdani-Ryan and Amy J. Ko",
+			"year": 2022,
+			"paper": "papers/KirdaniRyanHouseofComputing2022.pdf",
+			"links": {
+				"rehersal": "https://www.youtube.com/watch?v=mZJpykJnCUQ",
+				"recording": "https://www.youtube.com/watch?v=h4XewyAubBs",
+				"an example": "https://www.youtube.com/watch?v=Cr0ojgpB0ZQ"
+			},
+			"venue": "ACM Technical Symposium on Computer Science Education (SIGCSE), Experience Report",
+			"tagline": "Making structures explicit to critique in context\n An existence proof for deep ethics integrations into upper-level CS"
+		},
+		{
+			"title": "It's time for more Critical CS Education",
+			"author": "Amy J. Ko, Alannah Oleson, Mara Kirdani-Ryan, Yim Register, Benjamin Xie, Mina Tari, Matthew Davidson, Stefania Druga, and Dastyni Loksa",
+			"paper": "papers/CACMcriticalcs2020.pdf",
+			"venue": "Communications of the ACM (CACM)",
+            "year": 2020,
+			"tagline": "We need to do more!",
+			"links": {
+			}
+		}
+	]
+}
