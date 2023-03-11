@@ -1,6 +1,15 @@
 {
 	"papers": [
 		{
+			"title": "“Taught to be automata”: Examining the departmental role inshaping initial career choices of computing students",
+			"author": "Mara Kirdani-Ryan, Amy J. Ko, and Emilia A. Borislova",
+			"year": 2023,
+			"paper": "papers/KRAutomataCareers2023.pdf",
+			"links": { },
+			"venue": "Computer Science Education",
+			"tagline": "Making structures explicit to critique in context\n An existence proof for deep ethics integrations into upper-level CS"
+		},
+		{
 			"title": "The House of Computing: Integrating Counternarratives into Computer Systems Education",
 			"author": "Mara Kirdani-Ryan and Amy J. Ko",
 			"year": 2022,
