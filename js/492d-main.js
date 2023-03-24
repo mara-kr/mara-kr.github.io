@@ -5,9 +5,9 @@ $( document ).ready(function() {
     setTimeout(function() { el.classList.remove("hide") }, delay);
   }
 
-  var default_delay = 50.0;
-  // var default_delay = 1000.0;
-  // var page_fade_delay = 200.0;
+  // var default_delay = 50.0;
+  var default_delay = 800.0;
+  var page_fade_delay = 200.0;
   var delay = default_delay;
 
   function fadeElem(elem) {
@@ -26,20 +26,26 @@ $( document ).ready(function() {
     });
   }
 
-  $("#body").load("overview.html", function() {
+  $("#body").load("syllabus.html", function() {
 		  $.each($( ".fade"), function(idx, elem) { fadeElem($(this)); })
 		  delay = default_delay;
 		  })
 
   // Route between pages
-  $("#overview").click(function() {
+  $("#syllabus").click(function() {
     $("#body").fadeTo(page_fade_delay, 0.0, "linear", function() {
-      $("#body").load("overview.html", function() {
+      $("#body").load("syllabus.html", function() {
         $("#body").fadeTo(0.0, 1.0, "linear"); // Opacity -> 1
         fadeBody();
       });
     })
   });
-  $("#schedule").click(function() { ; }); // TODO: Load schedule
-  $("#syllabus").click(function() { ; }); // TODO: Load syllabus
+  $("#schedule").click(function() {
+    $("#body").fadeTo(page_fade_delay, 0.0, "linear", function() {
+      $("#body").load("schedule.html", function() {
+        $("#body").fadeTo(0.0, 1.0, "linear"); // Opacity -> 1
+        fadeBody();
+      });
+    })
+  });
 });

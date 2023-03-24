@@ -1,7 +1,8 @@
 :root {
   --text-color: #444444;
-  --link-color: #816A9F;
-  --link-hover: #E89379;
+  --link-color: #6d568b;
+  /* --link-hover: #E89379; */
+  --link-hover: #F8A389;
   --background-color: #FFF3F9;
   --font-size: 16px;
   --font-family: "Helvetica", sans-serif;
@@ -35,9 +36,14 @@ nav {
 	text-align: center;
 }
 
-p {
+p, li {
 	padding-left: 10px;
 	padding-right: 10px;
+    font-size: 13pt;
+    color: var(--text-color);
+    line-height: 1.5em;
+    font-weight: lighter;
+	text-align: justify;
 }
 
 a.nav {
@@ -126,7 +132,7 @@ h1 {
 
 .fade { opacity: 0.0;}
 
-.about {
+.syllabus .schedule {
     font-size: 13pt;
     color: var(--text-color);
     line-height: 1.7em;
