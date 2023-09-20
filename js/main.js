@@ -3,16 +3,16 @@ let quick_load = urlParams.get('rejected');
 
 $( document ).ready(function() {
   var default_delay = 1500.0;
-  var delay_spacing = 2000.0;
   var body_delay = 3000.0;
   var page_fade_delay = 600.0;
-  var pub_fade_dealy = 600.0;
+  var pub_fade_dealy = 1000.0;
+  var teaching_delay = 1500.0;
   if (quick_load) {
-    delay_spacing = 0.0;
     body_delay = 0.0;
     default_delay = 0;
     page_fade_delay = 0;
     pub_fade_dealy = 0;
+    teaching_delay = 0;
   }
   var cumulative_delay = default_delay;
 
@@ -23,7 +23,8 @@ $( document ).ready(function() {
     }
     $.each($(body_elem).find(".fade"), function(idx, elem) {
       $(this).delay(cumulative_delay).fadeTo(delaytime, 1.0, "linear");
-      cumulative_delay += delay_spacing;
+      cumulative_delay += delaytime * .666;
+      // cumulative_delay += (delaytime == body_delay) ? d: d;
     });
   }
 
@@ -53,7 +54,7 @@ $( document ).ready(function() {
       $("#body_pubs").empty();
       $("#body_about").empty();
       $("#body").fadeTo(0.0, 1.0, "linear");
-      fadeBody("#body_teaching", body_delay, true);
+      fadeBody("#body_teaching", teaching_delay, true);
     });
   }
 
