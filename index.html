@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-	<meta name="generator" content="Hugo 0.111.3">
+	<meta name="generator" content="Hugo 0.117.0">
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Mara Kirdani-Ryan</title>
+	<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
 
     <link rel="manifest" href=https://marakr.com/site.webmanifest>
     <link rel="mask-icon" href=https://marakr.com/safari-pinned-tab.svg color="#5bbad5">
@@ -12,13 +13,15 @@
     <meta name="theme-color" content="#ffffff">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    
+	<script src=js/jquery-3.2.1.min.js></script>
+
     <script src=https://marakr.com/js/main.js></script>
     <link rel="stylesheet" type="text/css" media="screen" href=https://marakr.com/css/style.css />
 </head>
 
 <body> <div class="outerContainer">
-    <div class="fadecontainer">
+    <div id='fadecontainer' class="fadecontainer">
         <div class="header fade">
             <div class="header-img">
                 <img src="img/profile.jpg"
@@ -26,17 +29,17 @@
             </div>
             <div class="header-bio">
                 <h1>Mara Kirdani-Ryan</h1>
-                <a href="https://www.mypronouns.org/they-them">they.them</a>
+                <a href="https://www.mypronouns.org/they-them">(they/them)</a>
                 <br>
-                <a href="https://cs.washington.edu"> Paul G. Allen School of Computer Science & Engineering</a>
-                <br>
-                <a href="https://uw.edu"> University of Washington</a>
-                <br>
-                <a href="mailto:marakr@uw.edu"> email</a>·
-                <a href="https://bandcamp.com/marakr"> music</a>·
+				<div class="desktop">
+					<a href="https://cs.washington.edu">Paul G. Allen School of Computer Science & Engineering</a>
+					<br>
+					<a  href="https://uw.edu">University of Washington</a>
+				</div>
+				<div class="mobile"><a href="https://cs.washington.edu">CSE</a>·<a href="https://uw.edu">UW</a></div>
+					<a href=papers/cv.pdf>cv</a>·<a href="mailto:marakr@uw.edu">email</a>·<a href="https://bandcamp.com/marakr">music</a>·<a href="https://www.librarything.com/catalog/marakr">reading</a>
+				
                 
-                <a href="https://github.com/mara-kr"> github</a>·
-                <a href="https://www.librarything.com/catalog/marakr"> reading</a>
                 <br>
             </div>
         </div>
@@ -44,13 +47,18 @@
             By understanding who we are, we can decide what requires our attention.
             </i></p></center>
     <nav>
-        <ul class="nav">
-            <li class="nav fade"><a class="nav" href="#" id="about">About</a></li>
-            <li class="nav fade"><a class="nav" href="#" id="research">Research</a></li>
+        <ul class="nav fade space-around">
+            <li class="nav"><a class="nav" href="#" id="about">  About  </a></li>
+            <li class="nav"><a class="nav" href="#" id="research">  Research  </a></li>
+            <li class="nav"><a class="nav" href="#" id="teaching">  Teaching </a></li>
         </ul>
     </nav>
 
-    <div id="body"></div>
+	<div id="body">
+		<div id="body_about"></div>
+		<div id="body_pubs"></div>
+		<div id="body_teaching"></div>
+	</div>
     </div>
 	</body>
 </html>

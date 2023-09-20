@@ -5,9 +5,11 @@
 			"author": "Mara Kirdani-Ryan, Amy J. Ko, and Emilia A. Borislova",
 			"year": 2023,
 			"paper": "papers/KRAutomataCareers2023.pdf",
-			"links": { },
+			"links": {
+				"doi": "https://www.tandfonline.com/doi/abs/10.1080/08993408.2023.2171689"
+			},
 			"venue": "Computer Science Education",
-			"tagline": "Making structures explicit to critique in context\n An existence proof for deep ethics integrations into upper-level CS"
+			"tagline": "CS departments encourage students to pursue prestigious work over all other options"
 		},
 		{
 			"title": "The House of Computing: Integrating Counternarratives into Computer Systems Education",
@@ -15,6 +17,7 @@
 			"year": 2022,
 			"paper": "papers/KirdaniRyanHouseofComputing2022.pdf",
 			"links": {
+				"doi": "https://dl.acm.org/doi/10.1145/3478431.3499394",
 				"rehearsal": "https://www.youtube.com/watch?v=mZJpykJnCUQ",
 				"recording": "https://www.youtube.com/watch?v=h4XewyAubBs",
 				"an example": "https://www.youtube.com/watch?v=Cr0ojgpB0ZQ"
@@ -23,13 +26,21 @@
 			"tagline": "Making structures explicit to critique in context\n An existence proof for deep ethics integrations into upper-level CS"
 		},
 		{
+			"title": "Operating Systems",
+			"author": "Amy J. Ko and Mara Kirdani-Ryan",
+			"paper": "https://criticallyconsciouscomputing.org/operating",
+			"venue": "in <i><a href='https://criticallyconsciouscomputing.org'>Critically Conscious Computing</a></i>, edited by Amy J. Ko, Anne Beitlers, Brett Wortzman, Matt Davidson, Alannah Oleson, Mara Kirdani-Ryan, Stefania Druga, and Jayne Everson",
+            "year": 2023,
+			"links": { }
+		},
+		{
 			"title": "It's time for more Critical CS Education",
 			"author": "Amy J. Ko, Alannah Oleson, Mara Kirdani-Ryan, Yim Register, Benjamin Xie, Mina Tari, Matthew Davidson, Stefania Druga, and Dastyni Loksa",
 			"paper": "papers/CACMcriticalcs2020.pdf",
 			"venue": "Communications of the ACM (CACM)",
             "year": 2020,
-			"tagline": "We need to do more!",
 			"links": {
+				"doi": "https://dl.acm.org/doi/10.1145/3424000"
 			}
 		}
 	]

@@ -1,16 +1,31 @@
 :root {
   --text-color: #444444;
-  --link-color: #6d568b;
+  /* --link-color: #6d568b; */
+  --link-color: #634688;
   --link-hover: #E89379;
   --background-color: #FFF3F9;
-  --font-size: 16px;
+  --font-size: 13pt;
   --font-family: "Helvetica", sans-serif;
   --header-split-left: 25%;
+  --mobile-width: 600px;
+}
+
+@media (max-width:675px) {
+	.desktop {
+		display: none;
+	}
+}
+
+@media (min-width:676px) {
+	.mobile{
+		display: none;
+	}
 }
 
 html {
     background-color: var(--background-color);
     background: var(--background-color);
+	min-width: 475px;
 }
 
 body {
@@ -23,11 +38,14 @@ body {
 
 /* navbar */
 .nav {
-	display: inline-block;
-	padding-inline: 2em;
+	display: flex;
 	list-style: none;
 	text-decoration: none;
-	font-size: 18px;
+	font-size: 16pt;
+}
+
+.nav.space-around {
+  justify-content: space-around;
 }
 
 nav {
@@ -72,15 +90,17 @@ h1 {
 
 .header {
   display: flex;
-  max-width:600px;
+  max-width: 600px;
   width: 100%;
   margin-left: -15px;
   margin-right: -15px;
-  padding: 20px
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .header-img {
   width: var(--header-split-left);
+  min-width: 110px;
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -92,17 +112,14 @@ h1 {
   line-height: 25px;
 }
 
-.profile-pic {
-  border-radius: 10px;
-}
-
 .outerContainer {
     display: absolute;
     margin-left: auto;
     margin-right: auto;
     padding-top: 50px;
     padding-bottom: 50px;
-    max-width: 40em;
+    max-width: 610px;
+	/* max-width: 600px; */
     -webkit-overflow-scrolling: touch;
     /* overflow: scroll; */
     /* overflow-x: hidden; */
@@ -114,18 +131,21 @@ h1 {
 .fadecontainer{
     max-width: 45em;
     margin: 0 auto;
-    padding: 20px;
     padding-top: 1em;
     background: var(--background-color);
 }
 
-.fade { opacity: 0.0;}
+	.fade { opacity: 0.0;}
 
-.about {
+.bodytext {
     font-size: 13pt;
     color: var(--text-color);
     line-height: 1.7em;
     font-weight: lighter;
+}
+
+.small {
+	font-size:11pt;
 }
 
 .quote {
@@ -134,7 +154,6 @@ h1 {
 	margin: 0px;
 	width: 90%;
     font-size: 12pt;
-    color: var(--link-color);
     color: var(--text-color);
     line-height: 1.7em;
     font-weight: lighter;
@@ -143,13 +162,20 @@ h1 {
 div.pub {
     line-height: 1em;
     font-weight: lighter;
-    margin-left: 20px;
-    margin-right: 20px;
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
-div.pub h3 {
-    font-size: 16px;
+.pubtitle {
+	font-size: 16px;
+}
+
+.coursename {
+	font-size: 20px;
+}
+
+.bodytext p a {
+	color: #6228AE;
 }
 
 a {
@@ -174,7 +200,7 @@ img {
     margin: 0 auto;
     max-width: 100%;
     height: auto;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 *:focus {outline:none !important}

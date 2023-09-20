@@ -1,38 +1,64 @@
-$( document ).ready(function() {
-  // Fades in an element after a specified delay
-  function showAfter(delay, el) {
-    el.classList.add("hide");
-    setTimeout(function() { el.classList.remove("hide") }, delay);
-  }
+var urlParams = new URLSearchParams(window.location.search);
+let quick_load = urlParams.get('rejected');
 
-  // var default_delay = 50.0;
+$( document ).ready(function() {
   var default_delay = 1000.0;
   var page_fade_delay = 600.0;
-  var delay = default_delay;
+  var pub_fade_dealy = 600.0;
+  if (quick_load) {
+    default_delay = 0;
+    page_fade_delay = 0;
+    pub_fade_dealy = 0;
+  }
+  var cumulative_delay = default_delay;
 
-  function fadeElem(elem) {
-    if (elem.closest("#body").length) {
-      elem.delay(delay).fadeTo(delay, 1.0, "swing");
-    } else {
-      elem.delay(delay).fadeTo(default_delay, 1.0, "linear"); // Fade to 1.0 opacity over delay
+  // Fade each element in div id=elem, adding `delaytime` after each element
+  function fadeBody(body_elem, delaytime, reset_delay) {
+    if (reset_delay) {
+      cumulative_delay = 0;
     }
-    delay += default_delay;
+    $.each($(body_elem).find(".fade"), function(idx, elem) {
+      $(this).delay(cumulative_delay).fadeTo(default_delay, 1.0, "swing");
+      cumulative_delay += delaytime;
+    });
   }
 
-  function fadeBody() {
-    delay = default_delay;
-    $.each($("#body").find(".fade"), function(idx, elem) {
-      fadeElem($(this));
+  function initial_load() {
+    // Load the header
+    cumulative_delay = default_delay;
+    $.each($("#fadecontainer").find(".fade"), function(idx, elem) {
+      // After culumative_delay, fade in over default_delay
+      $(this).delay(cumulative_delay).fadeTo(default_delay, 1.0, "swing");
+      cumulative_delay += default_delay;
+    });
+    // Load the about text
+    $("#body_about").load("about.html", function() { fadeBody("#body_about", default_delay, false);})
+  }
+
+  function loadAbout() {
+    $("#body_about").load("about.html", function() {
+      $("#body_pubs").empty();
+      $("#body_teaching").empty();
+      $("#body").fadeTo(0.0, 1.0, "linear");
+      fadeBody("#body_about", default_delay, true);
+    });
+  }
+
+  function loadTeaching() {
+    $("#body_teaching").load("teaching.html", function() {
+      $("#body_pubs").empty();
+      $("#body_about").empty();
+      $("#body").fadeTo(0.0, 1.0, "linear");
+      fadeBody("#body_teaching", default_delay, true);
     });
   }
 
   function loadPublications() {
-    $("#body").fadeTo(page_fade_delay, 0.0, "linear", function() {
-      $("#body").html("");
+      // Fade out existing html
+      $("#body").fadeTo(page_fade_delay, 0.0, "linear", function() {
       $.getJSON("data/papers.json", function(data) {
-        $("#body").fadeTo(0.0, 1.0, "linear");
         for (paper of data.papers) {
-          var title = `<h3><a href=${paper.paper}>${paper.title}</a></h3>`;
+          var title = `<p class="pubtitle"><b><a href=${paper.paper}>${paper.title}</a></b></p>`;
           var author = `${paper.author} (${paper.year})`;
           var venue = `<p>${paper.venue}</p>`;
           var links = "";
@@ -43,27 +69,27 @@ $( document ).ready(function() {
             links += `<a href=${dest}>${link}</a>`
             if (i < num_entries - 1) { links += " · ";}
           }
-          $("#body").append(
-          $("<div/>", {class : "pub fade"}).append(title, author, venue, links)
-            ).append(function() { fadeBody();})
+          links = `<p>${links}</p>`
+          $("#body_pubs").append(
+            $("<div/>", {class : "pub fade"}).append(title, author, venue, links)
+          )
         }
-      })
-    });
+        $("#body_about").empty();
+        $("#body_teaching").empty();
+        $("#body").fadeTo(0.0, 1.0, "linear");
+        fadeBody("#body_pubs", pub_fade_dealy, true);
+      });
+    })
   }
 
-  $("#body").load("about.html", function() {
-		  $.each($( ".fade"), function(idx, elem) { fadeElem($(this)); })
-		  delay = default_delay;
-		  })
+  initial_load()
 
   // Route between pages
   $("#about").click(function() {
-    $("#body").fadeTo(page_fade_delay, 0.0, "linear", function() {
-      $("#body").load("about.html", function() {
-        $("#body").fadeTo(0.0, 1.0, "linear"); // Opacity -> 1
-        fadeBody();
-      });
-    })
+    $("#body").fadeTo(page_fade_delay, 0.0, "linear", function() { loadAbout();})
   });
   $("#research").click(function() { loadPublications(); });
+  $("#teaching").click(function() {
+    $("#body").fadeTo(page_fade_delay, 0.0, "linear", function() { loadTeaching();})
+  });
 });
