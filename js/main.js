@@ -18,7 +18,7 @@ $( document ).ready(function() {
       cumulative_delay = 0;
     }
     $.each($(body_elem).find(".fade"), function(idx, elem) {
-      $(this).delay(cumulative_delay).fadeTo(default_delay, 1.0, "swing");
+      $(this).delay(cumulative_delay).fadeTo(default_delay, 1.0, "linear");
       cumulative_delay += delaytime;
     });
   }
@@ -28,7 +28,7 @@ $( document ).ready(function() {
     cumulative_delay = default_delay;
     $.each($("#fadecontainer").find(".fade"), function(idx, elem) {
       // After culumative_delay, fade in over default_delay
-      $(this).delay(cumulative_delay).fadeTo(default_delay, 1.0, "swing");
+      $(this).delay(cumulative_delay).fadeTo(default_delay, 1.0, "linear");
       cumulative_delay += default_delay;
     });
     // Load the about text

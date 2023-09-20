@@ -176,6 +176,13 @@ div.pub {
 
 .bodytext p a {
 	color: #6228AE;
+    transition: color 1.5s;
+    text-decoration: none;
+}
+
+.bodytext p a:hover {
+    color: var(--link-hover);
+    transition: color 1.5s;
 }
 
 a {
