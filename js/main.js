@@ -2,10 +2,14 @@ var urlParams = new URLSearchParams(window.location.search);
 let quick_load = urlParams.get('rejected');
 
 $( document ).ready(function() {
-  var default_delay = 1000.0;
+  var default_delay = 1500.0;
+  var delay_spacing = 2000.0;
+  var body_delay = 3000.0;
   var page_fade_delay = 600.0;
   var pub_fade_dealy = 600.0;
   if (quick_load) {
+    delay_spacing = 0.0;
+    body_delay = 0.0;
     default_delay = 0;
     page_fade_delay = 0;
     pub_fade_dealy = 0;
@@ -18,8 +22,8 @@ $( document ).ready(function() {
       cumulative_delay = 0;
     }
     $.each($(body_elem).find(".fade"), function(idx, elem) {
-      $(this).delay(cumulative_delay).fadeTo(default_delay, 1.0, "linear");
-      cumulative_delay += delaytime;
+      $(this).delay(cumulative_delay).fadeTo(delaytime, 1.0, "linear");
+      cumulative_delay += delay_spacing;
     });
   }
 
@@ -28,11 +32,11 @@ $( document ).ready(function() {
     cumulative_delay = default_delay;
     $.each($("#fadecontainer").find(".fade"), function(idx, elem) {
       // After culumative_delay, fade in over default_delay
-      $(this).delay(cumulative_delay).fadeTo(default_delay, 1.0, "linear");
+      $(this).delay(cumulative_delay).fadeTo(default_delay, 1.0, "swing");
       cumulative_delay += default_delay;
     });
     // Load the about text
-    $("#body_about").load("about.html", function() { fadeBody("#body_about", default_delay, false);})
+    $("#body_about").load("about.html", function() { fadeBody("#body_about", body_delay, false);})
   }
 
   function loadAbout() {
@@ -40,7 +44,7 @@ $( document ).ready(function() {
       $("#body_pubs").empty();
       $("#body_teaching").empty();
       $("#body").fadeTo(0.0, 1.0, "linear");
-      fadeBody("#body_about", default_delay, true);
+      fadeBody("#body_about", body_delay, true);
     });
   }
 
@@ -49,7 +53,7 @@ $( document ).ready(function() {
       $("#body_pubs").empty();
       $("#body_about").empty();
       $("#body").fadeTo(0.0, 1.0, "linear");
-      fadeBody("#body_teaching", default_delay, true);
+      fadeBody("#body_teaching", body_delay, true);
     });
   }
 
