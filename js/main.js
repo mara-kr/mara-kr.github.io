@@ -31,30 +31,37 @@ $( document ).ready(function() {
   function initial_load() {
     // Load the header
     cumulative_delay = default_delay;
-    $.each($("#fadecontainer").find(".fade"), function(idx, elem) {
+    $.each($("#outerContainer").find(".fade"), function(idx, elem) {
       // After culumative_delay, fade in over default_delay
       $(this).delay(cumulative_delay).fadeTo(default_delay, 1.0, "swing");
       cumulative_delay += default_delay;
     });
     // Load the about text
     $("#body_about").load("about.html", function() { fadeBody("#body_about", body_delay, false);})
+    $("#about").addClass('underline');
   }
 
   function loadAbout() {
     $("#body_about").load("about.html", function() {
       $("#body_pubs").empty();
       $("#body_teaching").empty();
+      $("#research").removeClass('underline');
+      $("#teaching").removeClass('underline');
       $("#body").fadeTo(0.0, 1.0, "linear");
       fadeBody("#body_about", body_delay, true);
+      $("#about").addClass('underline');
     });
   }
 
   function loadTeaching() {
     $("#body_teaching").load("teaching.html", function() {
-      $("#body_pubs").empty();
       $("#body_about").empty();
+      $("#body_pubs").empty();
+      $("#research").removeClass('underline');
+      $("#about").removeClass('underline');
       $("#body").fadeTo(0.0, 1.0, "linear");
       fadeBody("#body_teaching", teaching_delay, true);
+      $("#teaching").addClass('underline');
     });
   }
 
@@ -64,7 +71,7 @@ $( document ).ready(function() {
       $.getJSON("data/papers.json", function(data) {
         for (paper of data.papers) {
           var title = `<p class="pubtitle"><b><a href=${paper.paper}>${paper.title}</a></b></p>`;
-          var author = `${paper.author} (${paper.year})`;
+          var author = `<p>${paper.author} (${paper.year})</p>`;
           var venue = `<p>${paper.venue}</p>`;
           var links = "";
           var link_entries = Object.entries(paper.links);
@@ -81,8 +88,11 @@ $( document ).ready(function() {
         }
         $("#body_about").empty();
         $("#body_teaching").empty();
+        $("#about").removeClass('underline');
+        $("#teaching").removeClass('underline');
         $("#body").fadeTo(0.0, 1.0, "linear");
         fadeBody("#body_pubs", pub_fade_dealy, true);
+        $("#research").addClass('underline');
       });
     })
   }
