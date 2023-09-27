@@ -20,7 +20,7 @@ html {
     display: absolute;
     padding-top: 70px;
     padding-bottom: 70px;
-    max-width: 650px;
+    max-width: 40em;
     -webkit-overflow-scrolling: touch;
 }
 
@@ -184,7 +184,7 @@ img {
 		margin-right: 10px;
 	}
 	.quote {
-		width: 310px;
+		width: 20em;
 	}
 	.header-img {
 		width: 150px;

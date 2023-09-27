@@ -5,13 +5,13 @@ $( document ).ready(function() {
   var default_delay = 1500.0;
   var body_delay = 3000.0;
   var page_fade_delay = 600.0;
-  var pub_fade_dealy = 1000.0;
+  var pub_fade_delay = 1000.0;
   var teaching_delay = 1500.0;
   if (quick_load) {
     body_delay = 0.0;
     default_delay = 0;
     page_fade_delay = 0;
-    pub_fade_dealy = 0;
+    pub_fade_delay = 0;
     teaching_delay = 0;
   }
   var cumulative_delay = default_delay;
@@ -23,7 +23,7 @@ $( document ).ready(function() {
     }
     $.each($(body_elem).find(".fade"), function(idx, elem) {
       $(this).delay(cumulative_delay).fadeTo(delaytime, 1.0, "linear");
-      cumulative_delay += delaytime * .666;
+      cumulative_delay += delaytime * .25;
       // cumulative_delay += (delaytime == body_delay) ? d: d;
     });
   }
@@ -91,7 +91,7 @@ $( document ).ready(function() {
         $("#about").removeClass('underline');
         $("#teaching").removeClass('underline');
         $("#body").fadeTo(0.0, 1.0, "linear");
-        fadeBody("#body_pubs", pub_fade_dealy, true);
+        fadeBody("#body_pubs", pub_fade_delay, true);
         $("#research").addClass('underline');
       });
     })
