@@ -30,11 +30,11 @@ $( document ).ready(function() {
 
   function initial_load() {
     // Load the header
-    cumulative_delay = default_delay;
+    cumulative_delay = default_delay / 2;
     $.each($("#outerContainer").find(".fade"), function(idx, elem) {
       // After culumative_delay, fade in over default_delay
-      $(this).delay(cumulative_delay).fadeTo(default_delay, 1.0, "swing");
-      cumulative_delay += default_delay;
+      $(this).delay(cumulative_delay).fadeTo(default_delay / 2, 1.0, "swing");
+      cumulative_delay += default_delay / 2;
     });
     // Load the about text
     $("#body_about").load("about.html", function() { fadeBody("#body_about", body_delay, false);})
