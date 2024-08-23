@@ -42,6 +42,7 @@ $( document ).ready(function() {
   }
 
   function loadAbout() {
+    console.log('loading about');
     $("#body_about").load("about.html", function() {
       $("#body_pubs").empty();
       $("#body_teaching").empty();
@@ -54,6 +55,7 @@ $( document ).ready(function() {
   }
 
   function loadTeaching() {
+    console.log('loading teaching');
     $("#body_teaching").load("teaching.html", function() {
       $("#body_about").empty();
       $("#body_pubs").empty();

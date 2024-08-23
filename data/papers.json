@@ -1,6 +1,18 @@
 {
 	"papers": [
 		{
+			"title": "Identity Fragmentation in Post-Secondary Computing Education",
+			"author": "Mara Kirdani-Ryan",
+			"year": 2024,
+			"paper": "papers/KirdaniRyanDissertation.pdf",
+			"links": {
+				"doi": "https://www.proquest.com/docview/3081566658",
+				"defense recording": "https://www.youtube.com/watch?v=dH_qhFRoGzY"
+			},
+			"venue": "Dissertation",
+			"tagline": "My PhD thesis, I explore what spaces can be made for CS students to do identity work in learning cultures that delegitimize identity (among many other things)"
+		},
+		{
 			"title": "“Taught to be automata”: Examining the departmental role in shaping initial career choices of computing students",
 			"author": "Mara Kirdani-Ryan, Amy J. Ko, and Emilia A. Borislova",
 			"year": 2023,
