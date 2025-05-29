@@ -72,7 +72,7 @@ $( document ).ready(function() {
       $("#body").fadeTo(page_fade_delay, 0.0, "linear", function() {
       $.getJSON("data/papers.json", function(data) {
         for (paper of data.papers) {
-          var title = `<p class="pubtitle"><b><a href=${paper.paper}>${paper.title}</a></b></p>`;
+          var title = `<p class="pubtitle"><b>${paper.title}</b></p>`;
           var author = `<p>${paper.author} (${paper.year})</p>`;
           var venue = `<p>${paper.venue}</p>`;
           var links = "";
